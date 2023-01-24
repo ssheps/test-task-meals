@@ -10,8 +10,8 @@ use Meals\Domain\Poll\PollResult;
 interface PollResultCreatorInterface
 {
     public function createPollResult(
-        Poll $poll,
         Employee $employee,
-        Dish $dish
+        Dish $dish,
+        Poll $poll
     ): PollResult;
 }

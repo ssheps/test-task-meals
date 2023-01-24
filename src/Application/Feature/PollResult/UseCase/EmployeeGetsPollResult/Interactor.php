@@ -33,16 +33,17 @@ class Interactor
     public function getPollResult(int $employeeId, int $dishId, int $pollId): PollResult
     {
         $pollParticipantTime = new DateTimeImmutable();
+        $this->allowedTimeValidator->validate($pollParticipantTime);
+
         $employee = $this->employeeProvider->getEmployee($employeeId);
-        $poll = $this->pollProvider->getPoll($pollId);
         $dish = $this->dishProvider->getDish($dishId);
+        $poll = $this->pollProvider->getPoll($pollId);
 
         $this->userHasAccessToPollParticipantValidator->validate($employee->getUser());
         $this->pollIsActiveValidator->validate($poll);
-        $this->userHasNotPollResultValidator->validate($employee, $poll);
         $this->pollHasDishValidator->validate($poll, $dish);
-        $this->allowedTimeValidator->validate($pollParticipantTime);
+        $this->userHasNotPollResultValidator->validate($employee, $poll);
 
-        return $this->pollResultCreator->createPollResult($poll, $employee, $dish);
+        return $this->pollResultCreator->createPollResult($employee, $dish, $poll);
     }
 }

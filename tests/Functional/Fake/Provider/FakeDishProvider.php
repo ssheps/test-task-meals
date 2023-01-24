@@ -9,8 +9,15 @@ use Meals\Domain\Dish\Dish;
 
 class FakeDishProvider implements DishProviderInterface
 {
+    private Dish $dish;
+
     public function getDish(int $dishId): Dish
     {
-        // TODO: Implement getPollResult() method.
+        return $this->dish;
+    }
+
+    public function setDish(Dish $dish)
+    {
+        $this->dish = $dish;
     }
 }

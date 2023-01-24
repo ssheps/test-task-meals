@@ -9,8 +9,15 @@ use Meals\Domain\Poll\PollResult;
 
 class FakePollResultProvider implements PollResultProviderInterface
 {
-    public function getPollResult(int $employeeId, int $pollId): PollResult
+    private ?PollResult $pollResult = null;
+
+    public function getPollResult(int $employeeId, int $pollId): ?PollResult
     {
-        // TODO: Implement getPollResult() method.
+        return $this->pollResult;
+    }
+
+    public function setPollResult(?PollResult $pollResult)
+    {
+        $this->pollResult = $pollResult;
     }
 }

@@ -10,8 +10,14 @@ use Meals\Domain\Poll\PollResult;
 
 class FakePollResultCreator implements PollResultCreatorInterface
 {
-    public function createPollResult(Poll $poll, Employee $employee, Dish $dish): PollResult
+    public function createPollResult(Employee $employee, Dish $dish, Poll $poll): PollResult
     {
-        // TODO: Implement createPollResult() method.
+        return new PollResult(
+            1,
+            $poll,
+            $employee,
+            $dish,
+            $employee->getFloor()
+        );
     }
 }

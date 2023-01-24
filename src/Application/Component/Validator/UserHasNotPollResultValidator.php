@@ -16,7 +16,7 @@ class UserHasNotPollResultValidator
     ) {}
     public function validate(Employee $employee, Poll $poll): void
     {
-        if ($this->pollResultProvider->getPollResult($employee->getId(), $poll->getId())) {
+        if ($this->pollResultProvider->getPollResult($employee->getId(), $poll->getId()) !== null) {
             throw new UserPollResultExistException();
         }
     }
