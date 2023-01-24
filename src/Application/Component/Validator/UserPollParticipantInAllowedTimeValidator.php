@@ -5,12 +5,8 @@ declare(strict_types=1);
 namespace Meals\Application\Component\Validator;
 
 use DateTimeImmutable;
-use Meals\Application\Component\Provider\PollResultProviderInterface;
 use Meals\Application\Component\Validator\Exception\UserParticipantPollInNotAllowedTimeException;
-use Meals\Application\Component\Validator\Exception\UserPollResultExistException;
-use Meals\Domain\Employee\Employee;
 use Meals\Domain\Poll\AllowedDateTime\AllowedDateTime;
-use Meals\Domain\Poll\Poll;
 
 class UserPollParticipantInAllowedTimeValidator
 {

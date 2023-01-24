@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Meals\Application\Feature\Poll\UseCase\EmployeeGetsActivePolls;
 
-use Meals\Application\Component\Provider\PollProviderInterface;
 use Meals\Application\Component\Provider\EmployeeProviderInterface;
+use Meals\Application\Component\Provider\PollProviderInterface;
 use Meals\Application\Component\Validator\UserHasAccessToViewPollsValidator;
 use Meals\Domain\Poll\PollList;
 
